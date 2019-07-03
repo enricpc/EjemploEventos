@@ -27,7 +27,9 @@ namespace EjemploEventos
         void comun_Logging(List<Factura> nFacturas)
         {
             facturas = nFacturas;
+            dataGridView1.DataSource = null;
             dataGridView1.DataSource = facturas;
+            
         }
     }
 }

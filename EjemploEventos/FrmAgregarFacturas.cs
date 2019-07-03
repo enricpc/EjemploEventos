@@ -19,8 +19,14 @@ namespace EjemploEventos
         FacturaRepository repository = new FacturaRepository();
         private void button1_Click(object sender, EventArgs e)
         {
-          
-           
+            Factura factura = new Factura()
+            {
+                Id = Convert.ToInt32(textBox1.Text.ToString()),
+                Descripcion = textBox2.Text.ToString(),
+                Direccion = textBox3.Text.ToString()
+
+        };
+            repository.addFactura(factura);
          EventAccion(repository.GetFacturas());
         }
         public delegate void myEvendDelegate(List<Factura> facturas);

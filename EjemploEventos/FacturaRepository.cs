@@ -39,6 +39,10 @@ namespace EjemploEventos
         {
             return listaFactura;
         }
+        public void addFactura(Factura facturaNueva)
+        {
+            listaFactura.Add(facturaNueva);
+        }
     
     }
 }
