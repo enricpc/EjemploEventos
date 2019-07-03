@@ -12,23 +12,24 @@ namespace EjemploEventos
 {
     public partial class FrmMostrarFacturas : Form
     {
-        FrmAgregarFacturas frmAgregarFacturas = new FrmAgregarFacturas();
+        FacturaRepository facturaRepository = new FacturaRepository();
         public FrmMostrarFacturas()
         {
             InitializeComponent();
-            frmAgregarFacturas.MyEvent += nuevaFactura;
+            dataGridView1.DataSource = facturaRepository.GetFacturas();
         }
-       static List<Factura> facturas = new List<Factura>();
+     
         private void button1_Click(object sender, EventArgs e)
         {
-
+            FrmAgregarFacturas frmAgregarFacturas = new FrmAgregarFacturas();
+            frmAgregarFacturas.MyEvent += actualizarFactura;
             frmAgregarFacturas.Show();
         }
-        void nuevaFactura(List<Factura> nFacturas)
+        void actualizarFactura()
         {
-            facturas = nFacturas;
+            
             dataGridView1.DataSource = null;
-            dataGridView1.DataSource = facturas;
+            dataGridView1.DataSource = facturaRepository.GetFacturas();
         }
     }
 }

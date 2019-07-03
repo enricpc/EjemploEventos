@@ -27,17 +27,17 @@ namespace EjemploEventos
 
         };
             repository.addFactura(factura);
-         EventAccion(repository.GetFacturas());
+         EventAccion();
         }
-        public delegate void myEvendDelegate(List<Factura> facturas);
+        public delegate void myEvendDelegate();
         public event myEvendDelegate MyEvent;
 
-        protected virtual void EventAccion(List<Factura> facturas)
+        protected virtual void EventAccion()
         {
             myEvendDelegate tmp = MyEvent;
             if (tmp != null)
             {
-                tmp(facturas);
+                tmp();
             }
         }
     }
